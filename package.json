@@ -1,0 +1,23 @@
+{
+  "name": "rosalind",
+  "version": "1.0.0",
+  "description": "Project Rosalind ---------",
+  "main": "none",
+  "dependencies": {
+    "typescript": "^3.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pfmescher/rosalind.git"
+  },
+  "author": "Pablo F. Mescher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pfmescher/rosalind/issues"
+  },
+  "homepage": "https://github.com/pfmescher/rosalind#readme"
+}

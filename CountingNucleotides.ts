@@ -4,11 +4,12 @@
  * Return: Four integers (separated by spaces) counting the respective number of times that the symbols 'A', 'C', 'G',
  * and 'T' occur in s.
  */
-declare type base = "A"|"C"|"G"|"T";
+import { DNABase } from "./types";
+import { parseDNAString } from "./helpers/parsers";
 
-let strand: any = process.argv[2];
-let result = strand.split("")
-    .reduce((previousValue: any, currentValue: base) => (previousValue[currentValue]++,previousValue), {
+let strand: DNABase[] = parseDNAString(process.argv[2]);
+let result = strand.reduce(
+    (previousValue: any, currentValue: DNABase) => (previousValue[currentValue]++,previousValue), {
         A:0,
         C:0,
         G:0,
