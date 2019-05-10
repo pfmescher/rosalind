@@ -1,5 +1,9 @@
 import { DNABase, RNABase } from "../types";
 
+function assertNever(x: never): never {
+    throw new Error("Unexpected switch value: " + x);
+}
+
 function isDNABase(base: string): boolean {
     switch (base) {
         case "A":
@@ -36,10 +40,36 @@ export function parseDNAString(str: string): DNABase[] {
     return splitted.map(toDNABase)
 }
 
+/**
+ * Returns the RNA equivalent of a given DNA base
+ * (mostly useful to change the type of the variable)
+ * */
 export function DNAtoRNA(base: DNABase): RNABase {
     if (base === "T") {
         return "U";
     } else {
         return base;
     }
+}
+
+/**
+ * Return the complementary base for a given base
+ * Accepts DNA or RNA bases
+ * */
+export function complement(base: DNABase|RNABase): DNABase|RNABase {
+    switch (base) {
+        case "A":
+            return "T";
+        case "T":
+        case "U":
+            return "A";
+        case "C":
+            return "G";
+        case "G":
+            return "C";
+        default:
+            assertNever(base);
+    }
+
+    throw new Error(`Found no complementary base for ${base}`);
 }
